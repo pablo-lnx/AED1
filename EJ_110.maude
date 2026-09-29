@@ -1,0 +1,37 @@
+***************** NOMBRE *******************
+fmod VOCAL is
+
+***************** CONJUNTOS ****************
+   protecting BOOL .
+   sort V .
+
+***************** SINTAXIS *****************
+   ops A E I O U : -> V .
+   op esIgual : V V -> Bool .
+   op esDistinta : V V -> Bool .
+   op esMenor : V V -> Bool .
+
+***************** SEMANTICA ****************
+   var v w : V .
+
+   eq esIgual(v, v) = true .
+   eq esIgual(v, w) = false .
+   eq esDistinta(v, w) = not esIgual(v, w) .
+   
+   eq esMenor(A, E) = true .
+   eq esMenor(A, I) = true .
+   eq esMenor(A, O) = true .
+   eq esMenor(A, U) = true .
+
+   eq esMenor(E, I) = true .
+   eq esMenor(E, O) = true .
+   eq esMenor(E, U) = true .
+
+   eq esMenor(I, O) = true .
+   eq esMenor(I, U) = true .
+
+   eq esMenor(O, U) = true .
+
+   eq esMenor(v, w) = false .
+
+endfm
