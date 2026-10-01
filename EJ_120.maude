@@ -97,4 +97,4 @@ fmod CONJUNTO is
     eq esMiembro(v, insertar(w, c)) = esIgual(v, w) or esMiembro(v, c) .
     eq tamano(cjtoVacio) = cero .
     eq tamano(insertar(v, c)) = suma(tamano(c), if esMiembro(v, c) then cero else sucesor(cero) fi ) .
-    endfm
+endfm

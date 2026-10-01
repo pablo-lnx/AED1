@@ -141,14 +141,17 @@ fmod COLA is
    op meter : V C -> C .
    op sacar : C -> C .
    op cabecera : C -> V .
-
+   op meterVarias : V N C -> C .
+   op sacarVarias : N C -> C .
+   op esIgual : C C -> Bool .
+   op tamano : C -> N .
 
    op ERRORCOLAVACIA : -> MensajeColas .
    
    ***************** SEMANTICA ****************
    var c d : C .
    var v w : V .
-
+   var n : N .
    eq esVacia(colaVacia) = true .
    eq esVacia(meter(v, c)) = false .
    eq sacar(colaVacia) = colaVacia .
@@ -156,4 +159,16 @@ fmod COLA is
    eq cabecera(colaVacia) = ERRORCOLAVACIA .
    eq cabecera(meter(v, c)) = if esVacia(c) then v else cabecera(c)  fi .
    
+   eq meterVarias(v, cero, c) = c .
+   eq meterVarias(v, sucesor(n), c) = meter(v, meterVarias(v,n,c)) .
+   eq sacarVarias(cero, c)= c . 
+   eq sacarVarias(n, colaVacia) = colaVacia .
+   eq sacarVarias(sucesor(n), c) = sacarVarias(n, sacar(c)) .
+   eq esIgual(colaVacia, colaVacia) = true .
+   eq esIgual(colaVacia, d) = false .
+   eq esIgual(c, colaVacia) = false . 
+   eq esIgual(c,d) = if esIgual(cabecera(c),cabecera(d)) then esIgual(sacar(c), sacar(d)) else false fi .
+   eq tamano(colaVacia) = cero .
+   eq tamano(meter(v, c)) = suma(sucesor(cero), tamano(c)) .
+
 endfm

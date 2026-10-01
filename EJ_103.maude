@@ -39,4 +39,3 @@ fmod NATURAL is
    eq potencia(n, cero) = sucesor(cero) .
    eq potencia(n, sucesor(m))= producto(n, potencia(n, m)) .
 endfm
-

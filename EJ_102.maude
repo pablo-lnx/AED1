@@ -34,4 +34,3 @@ fmod NATURAL is
    eq esDistinto(n, m) = not esIgual(n, m) .
    eq producto(sucesor(n), m) = suma (m, producto (n, m )) .
 endfm
-

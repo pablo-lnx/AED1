@@ -32,5 +32,3 @@ fmod NATURAL is
    eq esIgual(sucesor(n), sucesor(m)) = esIgual(n, m) .
    eq esDistinto(n, m) = not esIgual(n, m) .
 endfm
-
-

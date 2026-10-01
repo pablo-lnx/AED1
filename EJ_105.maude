@@ -75,4 +75,3 @@ fmod NATURAL is
    eq difUno(sucesor(n), sucesor(m)) = difUno(n, m) .
 
 endfm
-

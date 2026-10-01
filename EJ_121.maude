@@ -113,5 +113,4 @@ fmod CONJUNTO is
 
     eq eliminar(v, cjtoVacio) = cjtoVacio .
     eq eliminar(v, insertar(w, c)) = if esIgual(v, w) then eliminar(v, c) else insertar(w, eliminar(v, c)) fi .
-
 endfm
