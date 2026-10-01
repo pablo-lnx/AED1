@@ -113,7 +113,10 @@ fmod PILA is
    eq primero(pilaVacia) = ERRORPILAVACIA .
    eq primero(push(v, pilaVacia)) = v .
    eq primero(push(v, p)) = primero(p) .
-
-
-
+   
+   eq tamano(pilaVacia) = cero .
+   eq tamano(push(v, p)) = suma(sucesor(cero), tamano(p)) .
+   
+   eq cuentaVocal(v, pilaVacia) = cero .
+   eq cuentaVocal(v, push(w, p)) = if esIgual(v, w) then suma(sucesor(cero), cuentaVocal(v, p)) else suma(cero, cuentaVocal(v, p)) fi .
 endfm
