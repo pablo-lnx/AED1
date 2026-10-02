@@ -89,7 +89,7 @@ fmod NATURAL is
    eq esMayor(cero, sucesor(n)) = false . 
    eq esMayor(cero, cero) = false .
    eq esMayor(sucesor(n), sucesor(m)) = esMayor(n, m) .
-   eq esMenorIgual(sucesor(cero), cero) = false .
+   eq esMenorIgual(sucesor(n), cero) = false .
    eq esMenorIgual(cero, sucesor(n)) = true .
    eq esMenorIgual(cero,cero) = true . 
    eq esMenorIgual(sucesor(n), sucesor(m)) = esMenorIgual(n, m) .
