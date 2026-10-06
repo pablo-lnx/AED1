@@ -1,2 +1,21 @@
+# Tema 1
 maude
 prelude.maude
+
+# Compilados
+*.exe
+*.out
+*.app
+*.o
+*.obj
+*.dll
+*.so
+*.a
+*.lib
+
+# Carpetas de build habituales
+build/
+bin/
+out/
+cmake-build-*/
+*.dSYM/
