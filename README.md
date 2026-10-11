@@ -4,5 +4,6 @@
 
 > **Ubicación:** Todos los ejercicios se encuentran en el directorio `src/`
 
-### Pendientes de completar:
-- *Ninguno*
+### Pendientes de completar antes del **(18/10)**:
+- *Ej-104*
+- *Ej-105*
