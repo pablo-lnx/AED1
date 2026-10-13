@@ -5,4 +5,4 @@
 > **Ubicación:** Todos los ejercicios se encuentran en el directorio `src/`
 
 ### Pendientes de completar antes del **(18/10)**:
-- *Ej-105*
+- *Ej-105* => *procesar_precios*, *procesar_eliminar*, *procesar_producto*
