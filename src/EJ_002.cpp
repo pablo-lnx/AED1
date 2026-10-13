@@ -6,17 +6,16 @@ using namespace std;
 
 int main(){
     string cadena;
-    int cont = 1;
+    int cont = 0;
 
     while (getline(cin, cadena)) {
-        cout << cont << ". " << cadena << endl;
+        cout << ++cont << ". " << cadena << endl;
         istringstream iss(cadena);
         string palabra;
         
         while (iss >> palabra) {
             cout << palabra << "\n";
         }
-        cont++;
     }
 
     return 0;
