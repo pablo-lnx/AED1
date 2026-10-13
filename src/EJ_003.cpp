@@ -1,5 +1,3 @@
-// EJERCICIO INCOMPLETO
-
 #include <iostream>
 #include <string>
 #include <sstream>
