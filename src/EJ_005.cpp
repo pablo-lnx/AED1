@@ -5,8 +5,6 @@
 using namespace std;
 using ull = unsigned long long;
 
-int contador = 0;   // Variable global => Contador numero de productos
-
 class Producto {
     private:
         // Atributos
@@ -37,13 +35,15 @@ class Producto {
 
         void mostrar()
         {
-            cout << ::contador << ".  " << nombre << " (" << identificador << ")" << endl
+            cout << nombre << " (" << identificador << ")" << endl
             << "  " << descripcion << endl
             << "  " << precio << " euros" << endl;
         };
 };
 
-Producto producto;  // Objeto global
+// Variables globales
+int contador = 0;       // Contador numero de productos
+Producto producto;
 
 // Prototipos
 void procesar_insertar();
@@ -80,12 +80,13 @@ void procesar_insertar()
 
 void procesar_palabras()
 {
-    string nombre_p;
+    string palabras;
 
     cin.ignore();
-    getline(cin, nombre_p);
+    getline(cin, palabras);
     
-    cout << "palabras " << nombre_p << endl;
+    cout << "palabras " << palabras << endl;
+    cout << ::contador << ".  ";
     ::producto.mostrar();
     cout << "Total: " << ::contador << " producto" << endl;
 };
