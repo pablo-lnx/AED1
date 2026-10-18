@@ -4,5 +4,5 @@
 
 > **Ubicación:** Todos los ejercicios se encuentran en el directorio `src/`
 
-### Pendientes de completar antes del **(18/10)**:
-- *Ej-105* => *procesar_precios*, *procesar_eliminar*, *procesar_producto*
+### Pendientes de completar antes del **(25/10)**:
+- EJ-006: Implementación sencilla del diccionario de productos con listas.

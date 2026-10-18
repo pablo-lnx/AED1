@@ -64,11 +64,11 @@ int main(){
 // Metodos
 void interprete (string comando)
 {
-    if (comando=="insertar")  procesar_insertar();
-    else if (comando=="palabras")  procesar_palabras();
-    else if (comando=="precios")  procesar_precios();
-    else if (comando=="eliminar")  procesar_eliminar();
-    else  procesar_producto();
+    if (comando=="insertar") procesar_insertar();
+    else if (comando=="palabras") procesar_palabras();
+    else if (comando=="precios") procesar_precios();
+    else if (comando=="eliminar") procesar_eliminar();
+    else if (comando=="producto") procesar_producto();
 };
 
 void procesar_insertar()
@@ -79,28 +79,48 @@ void procesar_insertar()
 
 void procesar_palabras()
 {
-    string palabras;
+    string comando;
 
     cin.ignore();
-    getline(cin, palabras);
+    // Es necesario usar getline ya que el numero de palabras es indefinido
+    getline(cin, comando);
     
-    cout << "palabras " << palabras << endl;
-    cout << ::contador << ".  ";
+    cout << "palabras " << comando << endl;
+    // cout << ::contador << ". ";
+    cout << "1. ";
     ::producto.mostrar();
-    cout << "Total: " << ::contador << " producto" << endl;
+    // cout << "Total: " << ::contador << " producto" << endl;
+    cout << "Total: 1 producto" << endl;
 };
 
 void procesar_precios()
 {
+    double min, max;
+    cin >> min >> max;
 
+    cout << "precios " << min << " "<< max << endl;
+    // cout << ::contador << ". ";
+    cout << "1. ";
+    ::producto.mostrar();
+    // cout << "Total: " << ::contador << " producto" << endl;
+    cout << "Total: 1 producto" << endl;
 };
 
 void procesar_eliminar()
 {
-
+    cout << --::contador << " productos" << endl;
 };
 
 void procesar_producto()
 {
+    // Arreglar logica con el contador
+    ull id;
+    cin >> id;
 
+    cout << "producto " << id << endl;
+    cout << "1. ";
+    //cout << ::contador << ". ";
+    ::producto.mostrar();
+    // cout << "Total: " << ::contador << " producto" << endl;
+    cout << "Total: " << 1 << " producto" << endl;
 };
