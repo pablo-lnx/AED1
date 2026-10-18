@@ -47,9 +47,9 @@ Producto producto;
 // Prototipos
 void procesar_insertar();
 void procesar_palabras();
-void procesar_precios();            // Resolver       
-void procesar_eliminar();           // Resolver
-void procesar_producto();           // Resolver
+void procesar_precios();    
+void procesar_eliminar();
+void procesar_producto();
 void interprete(string comando);
 
 int main(){
