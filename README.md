@@ -2,7 +2,19 @@
 
 ## 📤 Ejercicios para el Juez
 
-> **Ubicación:** Todos los ejercicios se encuentran en el directorio `src/`
+> **Ejercicios:** Del 001 al 005 se encuentran en el directorio `src/`
+> **Proyecto:** Ficheros y su respectivo Makefile en el directorio `proyecto/`
 
-### Pendientes de completar antes del **(25/10)**:
-- EJ-006: Implementación sencilla del diccionario de productos con listas.
+`tar -cf archivo.tar *.cpp *.h Makefile`
+
+### Pendientes de completar antes del **(27/10)**:
+#### EJ-006:
+
+* DiccionarioProductos.cpp:
+
+- Funcion "eliminar"
+- Funcion "precios"
+
+* Interprete.h:
+- Funcion "procesar_producto"
+- Funcion "procesar_precios"
