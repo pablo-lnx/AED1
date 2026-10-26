@@ -7,13 +7,6 @@
 
 `tar -cf archivo.tar *.cpp *.h Makefile`
 
-### Pendientes de completar antes del **(27/10)**:
-#### EJ-006:
-
-> DiccionarioProductos.cpp:
-
-- Funcion "eliminar"
-- Funcion "precios"
-
-> Interprete.h:
-- Funcion "procesar_precios"
+### Pendientes de completar antes del **(01/11)**:
+#### EJ-007:
+- Vacio

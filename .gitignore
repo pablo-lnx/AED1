@@ -13,6 +13,10 @@ prelude.maude
 *.a
 *.lib
 
+# Comprimidos
+*.tar
+*.zip
+
 # Carpetas de build habituales
 playground/
 build/
