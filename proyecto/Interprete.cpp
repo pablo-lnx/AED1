@@ -35,7 +35,11 @@ void Interprete::procesar_producto()
 
 void Interprete::procesar_precios()
 {
-    // POR HACER
+    double min, max;
+    cin >> min >> max;
+    cout << "precios " << min << " " << max << endl;
+    int encontrados = dic.precios(min, max);
+    cout << "Total: " << encontrados << " productos" << endl;
 }
 
 void Interprete::ejecutar(string comando)

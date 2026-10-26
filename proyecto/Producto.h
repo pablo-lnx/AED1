@@ -19,6 +19,7 @@ class Producto {
 
         // GETTERS
         ull getIdentificador() { return identificador; }
+        double getPrecio() { return precio; }
 
         // METODOS
         void leer();

@@ -18,8 +18,7 @@ void DiccionarioProductos::insertar(Producto nuevo)
     if (!lista_productos.size()) {
         lista_productos.push_back(nuevo);
         contador++;
-    }
-    else {
+    } else {
 
         list<Producto>::iterator it = lista_productos.begin();  // Inicializo el objeto iterador
         
@@ -38,7 +37,15 @@ void DiccionarioProductos::insertar(Producto nuevo)
 
 void DiccionarioProductos::eliminar(ull id)
 {
-    // POR HACER
+    list<Producto>::iterator it = lista_productos.begin();
+    while (it != lista_productos.end()) {
+        if (it->getIdentificador() == id) {
+            lista_productos.erase(it);
+            --contador;
+            return;
+        }
+        ++it;
+    }
 }
 
 int DiccionarioProductos::producto(ull id)
@@ -56,7 +63,24 @@ int DiccionarioProductos::producto(ull id)
     return 1;
 }
 
-void DiccionarioProductos::precios(double min, double max)
+int DiccionarioProductos::precios(double min, double max)
 {
-    // POR HACER
+    if (min > max) {
+        double a = min;
+        min = max;
+        max = a;
+    }
+
+    int encontrados = 0;
+    list<Producto>::iterator it = lista_productos.begin();
+    while (it != lista_productos.end()) {
+        double precio = it->getPrecio();
+        if (precio >= min && precio <= max) {
+            ++encontrados;
+            cout << encontrados << ". ";
+            it->mostrar();
+        }
+        ++it;
+    }
+    return encontrados;
 }
