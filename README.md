@@ -16,5 +16,4 @@
 - Funcion "precios"
 
 * Interprete.h:
-- Funcion "procesar_producto"
 - Funcion "procesar_precios"

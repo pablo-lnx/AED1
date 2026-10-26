@@ -19,13 +19,18 @@ void Interprete::procesar_insertar()
 void Interprete::procesar_eliminar ()
 {
     ull id;
-    cout << "eliminar " << id << endl;
+    cin >> id;
     dic.eliminar(id);
+    cout << dic.numElem() << " productos" << endl;
 }
 
 void Interprete::procesar_producto()
 {
-    // POR HACER
+    ull id;
+    cin >> id;
+    cout << "producto " << id << endl;
+    int encontrados = dic.producto(id);
+    cout << "Total: " << encontrados << " productos" << endl;
 }
 
 void Interprete::procesar_precios()

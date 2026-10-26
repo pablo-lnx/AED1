@@ -15,25 +15,25 @@ DiccionarioProductos::DiccionarioProductos(){
 void DiccionarioProductos::insertar(Producto nuevo)
 {
     // Comprueba si la lista no tiene algun producto aun
-    if (!lista_productos.size()) lista_productos.push_back(nuevo);
+    if (!lista_productos.size()) {
+        lista_productos.push_back(nuevo);
+        contador++;
+    }
     else {
 
-        list<Producto>::iterator it;   // Declaro el objeto iterador
-        it = lista_productos.begin();  // Inicializo el objeto iterador
-        Producto actual = *it;         // Producto actual: Ahora mismo es el primero
+        list<Producto>::iterator it = lista_productos.begin();  // Inicializo el objeto iterador
         
         // Busca en la lista el indice/puntero que mantiene la lista ordenada tras incluir el nuevo producto
-        while (it!=lista_productos.end() && actual.getIdentificador() < nuevo.getIdentificador())
-            it++;
-        
+        while (it!=lista_productos.end() && it->getIdentificador() < nuevo.getIdentificador()) 
+            ++it;
+
         // Comprueba que el bucle ha terminado con un puntero valido o no, y que no se este intentando insertar un producto ya existente
-        if (it==lista_productos.end() || actual.getIdentificador() != nuevo.getIdentificador()) {
+        if (it==lista_productos.end() || it->getIdentificador() != nuevo.getIdentificador()) {
             // objlista.insert(itLista, valor);
             lista_productos.insert(it, nuevo);
+            ++contador;
         }
     }
-
-    contador++;
 }
 
 void DiccionarioProductos::eliminar(ull id)
@@ -41,17 +41,19 @@ void DiccionarioProductos::eliminar(ull id)
     // POR HACER
 }
 
-void DiccionarioProductos::producto(ull id)
+int DiccionarioProductos::producto(ull id)
 {
-    list<Producto>::iterator it;
-    it = lista_productos.begin();
-    Producto actual = *it;
-        
+    list<Producto>::iterator it = lista_productos.begin();
+
     // Busca en la lista el indice/puntero que tiene el ID buscado
-    while (it!=lista_productos.end() && actual.getIdentificador() != id)
-        it++;
-    
-    if (it!=lista_productos.end()) actual.mostrar();
+    while (it!=lista_productos.end() && it->getIdentificador() != id)
+        ++it;
+
+    if (it==lista_productos.end()) return 0;
+
+    cout << "1. ";
+    it->mostrar();
+    return 1;
 }
 
 void DiccionarioProductos::precios(double min, double max)

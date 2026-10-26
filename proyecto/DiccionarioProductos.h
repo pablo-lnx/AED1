@@ -17,7 +17,7 @@ class DiccionarioProductos {
         // METODOS
         void insertar(Producto nuevo);          // Insertar de forma ordenada (ID del producto)
         void eliminar(ull id);                  // Elimina el objeto de la lista asociado con el ID pasado como parametro
-        void producto(ull id);                  // Consulta un producto dado su ID
+        int producto(ull id);                   // Consulta un producto dado su ID y devuelve cuantos encontro
         void precios(double min, double max);   // Dados un precio minimo y maximo, busca los productos en dicho rango y muestralos por orden de ID
         int numElem() { return contador; }      // Devuelve el numero de productos
 };
