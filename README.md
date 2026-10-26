@@ -10,10 +10,10 @@
 ### Pendientes de completar antes del **(27/10)**:
 #### EJ-006:
 
-* DiccionarioProductos.cpp:
+> DiccionarioProductos.cpp:
 
 - Funcion "eliminar"
 - Funcion "precios"
 
-* Interprete.h:
+> Interprete.h:
 - Funcion "procesar_precios"
