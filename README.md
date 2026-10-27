@@ -7,6 +7,6 @@
 
 `tar -cf archivo.tar *.cpp *.h Makefile`
 
-### Pendientes de completar antes del **(01/11)**:
+### Pendientes de completar antes del **(08/11)**:
 #### EJ-007:
 - Vacio
