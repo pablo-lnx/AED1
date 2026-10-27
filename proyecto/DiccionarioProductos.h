@@ -1,6 +1,7 @@
 #ifndef _DICCIONARIO_PRODUCTOS
 #define _DICCIONARIO_PRODUCTOS
 
+// Arreglar importaciones
 #include "Producto.h"
 #include <list>
 
@@ -8,19 +9,16 @@ class DiccionarioProductos {
     private:
         // ATRIBUTOS
         std::list<Producto> lista_productos;
-        int contador;
+        TablaHash tabla;
     
     public:
         // CONSTRUCTOR
         DiccionarioProductos();
 
         // METODOS
-        void insertar(Producto nuevo);          // Insertar de forma ordenada (ID del producto)
-        void eliminar(ull id);                  // Elimina el objeto de la lista asociado con el ID pasado como parametro
-        int producto(ull id);                   // Consulta un producto dado su ID y devuelve cuantos encontro
-        int precios(double min, double max);    // Dados un precio minimo y maximo, busca los productos en dicho rango y muestralos por orden de ID
-                                                // Ademas devuelve cuantos encontro
-        int numElem() { return contador; }      // Devuelve el numero de productos
+        void insertar(Producto nuevo);      // Insertar de forma ordenada (ID del producto)
+        void palabras(std::string palabra);
+        int numElem()   // Devuelve el numero de productos
 };
 
 #endif

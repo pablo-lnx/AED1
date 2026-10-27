@@ -9,4 +9,22 @@
 
 ### Pendientes de completar antes del **(08/11)**:
 #### EJ-007:
-- Vacio
+> Makefile
+- Reajustar jerarquia de dependencias
+
+##### En base a la nueva jerarquia adaptar los siguientes ficheros:
+> DiccionarioProductos.h
+- Arreglar importaciones
+> DiccionarioProductos.cpp
+- Revisar constructor (Nuevo Atributo: TablaHash tabla)
+- Definir 'palabras'
+
+> TablaHash.h
+- Definir
+> TablaHash.cpp
+- Definir
+
+> Producto.h
+- Añadir getters
+
+> **Nota:** Cambios sugeridos de forma provisional
