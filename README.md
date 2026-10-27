@@ -9,9 +9,6 @@
 
 ### Pendientes de completar antes del **(08/11)**:
 #### EJ-007:
-> Makefile
-- Reajustar jerarquia de dependencias
-
 ##### En base a la nueva jerarquia adaptar los siguientes ficheros:
 > DiccionarioProductos.h
 - Arreglar importaciones
