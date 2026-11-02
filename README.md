@@ -7,9 +7,8 @@
 
 `tar -cf archivo.tar *.cpp *.h Makefile`
 
-### Pendientes de completar antes del **(08/11)**:
-#### EJ-007:
-##### En base a la nueva jerarquia adaptar los siguientes ficheros:
+### EJ-007:
+#### En base a la nueva jerarquia adaptar los siguientes ficheros:
 > DiccionarioProductos.h
 - Arreglar importaciones
 > DiccionarioProductos.cpp
@@ -24,4 +23,4 @@
 > Producto.h
 - Añadir getters
 
-##### **Nota:** Cambios sugeridos de forma provisional
+#### **Nota:** Cambios sugeridos de forma provisional
