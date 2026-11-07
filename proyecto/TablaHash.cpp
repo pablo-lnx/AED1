@@ -15,8 +15,7 @@ int TablaHash::funcionHash(string palabra) const
 {
     int suma = 0;
 
-    for (unsigned i = 0; i < palabra.length(); i++)
-    {
+    for (unsigned i = 0; i < palabra.length(); i++){
         suma = suma + (unsigned char) palabra[i];
     }
 
@@ -28,22 +27,16 @@ void TablaHash::insertar(string palabra, Producto* nuevo)
 {
     int posicion = funcionHash(palabra);
 
-    list<Entrada>::iterator it;
-    it = tabla[posicion].begin();
+    list<Entrada>::iterator it = tabla[posicion].begin();
 
     bool encontrado = false;
 
     // Buscamos si la palabra ya existe
-    while (it != tabla[posicion].end() && !encontrado)
-    {
-        if (it->palabra == palabra)
-        {
-            encontrado = true;
-        }
-        else
-        {
-            it++;
-        }
+    while (it != tabla[posicion].end() && !encontrado){
+        
+        if (it->palabra == palabra) encontrado = true;
+        
+        else it++;
     }
 
     // Si la palabra no existe, creamos una nueva entrada
@@ -96,14 +89,9 @@ int TablaHash::palabras(string palabra) const
     // Buscamos la palabra
     while (it != tabla[posicion].end() && !encontrado)
     {
-        if (it->palabra == palabra)
-        {
-            encontrado = true;
-        }
-        else
-        {
-            it++;
-        }
+        if (it->palabra == palabra) encontrado = true;
+
+        else it++;
     }
 
     int contador = 0;
