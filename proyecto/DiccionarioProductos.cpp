@@ -2,6 +2,7 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <sstream>
 #include "DiccionarioProductos.h"
 
 using namespace std;
@@ -28,8 +29,20 @@ void DiccionarioProductos::insertar(Producto nuevo)
         return;
     }
 
-    // Insertamos el producto ordenadamente
     lista_productos.insert(it, nuevo);
+    Producto* producto = &(*it);
+
+    // Indexamos las palabras del nombre
+    stringstream flujoNombre(producto->getNombre());
+    string palabra;
+
+    while (flujoNombre >> palabra) tabla.insertar(palabra, producto);
+
+    // Indexamos las palabras de la descripcion
+    stringstream flujoDescripcion(producto->getDescripcion());
+
+    while (flujoDescripcion >> palabra) tabla.insertar(palabra, producto);
+    
 }
 
 // PALABRAS
