@@ -29,7 +29,7 @@ void DiccionarioProductos::insertar(Producto nuevo)
         return;
     }
 
-    lista_productos.insert(it, nuevo);
+    it = lista_productos.insert(it, nuevo);
     Producto* producto = &(*it);
 
     // Indexamos las palabras del nombre

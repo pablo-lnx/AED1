@@ -10,10 +10,11 @@ class Interprete {
         DiccionarioProductos dic;
 
         // METODOS PRIVADOS
-        void procesar_insertar ();
-        void procesar_eliminar();
-        void procesar_producto();
-        void procesar_precios();
+        void procesar_insertar();
+        void procesar_palabras();
+        // void procesar_eliminar();
+        // void procesar_producto();
+        // void procesar_precios();
 
     public:
         // CONSTRUCTOR
