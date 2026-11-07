@@ -20,6 +20,8 @@ class Producto {
         // GETTERS
         ull getIdentificador() { return identificador; }
         double getPrecio() { return precio; }
+        std::string getNombre() { return nombre; }
+        std::string getDescripcion() { return descripcion; }
 
         // METODOS
         void leer();
