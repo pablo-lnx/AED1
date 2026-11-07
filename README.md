@@ -15,11 +15,6 @@
 - Revisar constructor (Nuevo Atributo: TablaHash tabla)
 - Definir 'palabras'
 
-> TablaHash.h
-- Definir
-> TablaHash.cpp
-- Definir
-
 > Producto.h
 - Añadir getters
 
