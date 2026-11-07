@@ -3,6 +3,7 @@
 
 // Arreglar importaciones
 #include "Producto.h"
+#include "TablaHash.h"
 #include <list>
 
 class DiccionarioProductos {
@@ -18,7 +19,7 @@ class DiccionarioProductos {
         // METODOS
         void insertar(Producto nuevo);      // Insertar de forma ordenada (ID del producto)
         void palabras(std::string palabra);
-        int numElem()   // Devuelve el numero de productos
+        int numElem();   // Devuelve el numero de productos
 };
 
 #endif
