@@ -24,7 +24,7 @@ void Interprete::procesar_palabras()
 {
     string palabra;
     cin >> palabra;
-
+    cout << "palabras " << palabra << endl;
     dic.palabras(palabra);
 }
 
