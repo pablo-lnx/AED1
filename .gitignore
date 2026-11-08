@@ -24,6 +24,3 @@ bin/
 out/
 cmake-build-*/
 *.dSYM/
-
-# Ignorar tests
-proyecto/tests
