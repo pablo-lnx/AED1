@@ -7,15 +7,4 @@
 
 `tar -cf archivo.tar *.cpp *.h Makefile`
 
-### EJ-007:
-#### En base a la nueva jerarquia adaptar los siguientes ficheros:
-> DiccionarioProductos.h
-- Arreglar importaciones
-> DiccionarioProductos.cpp
-- Revisar constructor (Nuevo Atributo: TablaHash tabla)
-- Definir 'palabras'
-
-> Producto.h
-- Añadir getters
-
 #### **Nota:** Cambios sugeridos de forma provisional
