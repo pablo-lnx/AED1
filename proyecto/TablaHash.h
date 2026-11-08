@@ -4,6 +4,7 @@
 #include "Producto.h"
 #include <list>
 #include <string>
+#include <vector>
 
 class TablaHash
 {
@@ -15,7 +16,7 @@ class TablaHash
             std::list<Producto*> productos;
         };
 
-        std::list<Entrada> tabla[100];
+        std::vector<std::list<Entrada>> tabla;
 
         // METODOS PRIVADOS
         int funcionHash(std::string palabra) const;

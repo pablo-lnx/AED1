@@ -64,7 +64,7 @@ static string minusculas(string entrada)
 }
 
 // CONSTRUCTOR
-TablaHash::TablaHash(){}
+TablaHash::TablaHash() : tabla(10007){}
 
 // DESTRUCTOR
 TablaHash::~TablaHash(){}
@@ -72,13 +72,14 @@ TablaHash::~TablaHash(){}
 // FUNCION HASH
 int TablaHash::funcionHash(string palabra) const
 {
-    int suma = 0;
+    unsigned long long hash = 0;
 
-    for (unsigned i = 0; i < palabra.length(); i++){
-        suma = suma + (unsigned char) palabra[i];
+    for (unsigned i = 0; i < palabra.length(); i++)
+    {
+        hash = (hash * 31 + (unsigned char)palabra[i]) % tabla.size();
     }
 
-    return suma % 100;
+    return hash;
 }
 
 // INSERTAR
