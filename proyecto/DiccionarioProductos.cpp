@@ -13,36 +13,24 @@ DiccionarioProductos::DiccionarioProductos() {}
 // INSERTAR
 void DiccionarioProductos::insertar(Producto nuevo)
 {
-    list<Producto>::iterator it = lista_productos.begin();
+    // Insertamos el producto al principio de la lista en O(1)
+    lista_productos.push_front(nuevo);
 
-    // Buscamos la posicion correcta
-    while (it != lista_productos.end() &&
-           it->getIdentificador() < nuevo.getIdentificador())
-    {
-        it++;
-    }
-
-    // Si ya existe, no lo insertamos
-    if (it != lista_productos.end() &&
-        it->getIdentificador() == nuevo.getIdentificador())
-    {
-        return;
-    }
-
-    it = lista_productos.insert(it, nuevo);
-    Producto* producto = &(*it);
+    // Obtenemos un puntero al producto insertado
+    Producto* producto = &lista_productos.front();
 
     // Indexamos las palabras del nombre
     stringstream flujoNombre(producto->getNombre());
     string palabra;
 
-    while (flujoNombre >> palabra) tabla.insertar(palabra, producto);
+    while (flujoNombre >> palabra)
+        tabla.insertar(palabra, producto);
 
     // Indexamos las palabras de la descripcion
     stringstream flujoDescripcion(producto->getDescripcion());
 
-    while (flujoDescripcion >> palabra) tabla.insertar(palabra, producto);
-    
+    while (flujoDescripcion >> palabra)
+        tabla.insertar(palabra, producto);
 }
 
 // PALABRAS
