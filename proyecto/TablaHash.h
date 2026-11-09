@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+using ull = unsigned long long;
+
 class TablaHash
 {
     private:
@@ -17,9 +19,11 @@ class TablaHash
         };
 
         std::vector<std::list<Entrada>> tabla;
+        int numPalabras;
 
         // METODOS PRIVADOS
         int funcionHash(std::string palabra) const;
+        void reestructurar();
 
     public:
         // CONSTRUCTOR Y DESTRUCTOR

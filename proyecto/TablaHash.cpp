@@ -64,15 +64,14 @@ static string minusculas(string entrada)
 }
 
 // CONSTRUCTOR
-TablaHash::TablaHash() : tabla(10007){}
-
+TablaHash::TablaHash() : tabla(10007), numPalabras(0){}
 // DESTRUCTOR
 TablaHash::~TablaHash(){}
 
 // FUNCION HASH
 int TablaHash::funcionHash(string palabra) const
 {
-    unsigned long long hash = 0;
+    ull hash = 0;
 
     for (unsigned i = 0; i < palabra.length(); i++)
     {
@@ -80,6 +79,32 @@ int TablaHash::funcionHash(string palabra) const
     }
 
     return hash;
+}
+//Reestructurar
+void TablaHash::reestructurar()
+{
+    vector<list<Entrada>> nueva(tabla.size() * 2);
+
+    for (unsigned i = 0; i < tabla.size(); i++)
+    {
+        list<Entrada>::iterator it = tabla[i].begin();
+
+        while (it != tabla[i].end())
+        {
+            ull hash = 0;
+
+            for (unsigned j = 0; j < it->palabra.length(); j++)
+            {
+                hash = (hash * 31 + (unsigned char)it->palabra[j])
+                       % nueva.size();
+            }
+
+            nueva[hash].push_back(*it);
+            it++;
+        }
+    }
+
+    tabla.swap(nueva);
 }
 
 // INSERTAR
@@ -101,15 +126,19 @@ void TablaHash::insertar(string palabra, Producto* nuevo)
     }
 
     // Si la palabra no existe, creamos una nueva entrada
-    if (!encontrado)
-    {
-        tabla[posicion].push_back(Entrada());
+  if (!encontrado)
+{
+    tabla[posicion].push_back(Entrada());
 
-        it = tabla[posicion].end();
-        it--;
+    it = tabla[posicion].end();
+    it--;
 
-        it->palabra = palabra;
-    }
+    it->palabra = palabra;
+
+    numPalabras++;
+  
+}
+
 
     // Buscamos la posicion del producto según su identificador
     list<Producto*>::iterator itProducto;
@@ -133,8 +162,15 @@ void TablaHash::insertar(string palabra, Producto* nuevo)
     // Si no está repetido, lo insertamos ordenadamente
     if (!repetido)
     {
-        it->productos.insert(itProducto, nuevo);
+        it->productos.insert(itProducto, nuevo);    
     }
+	double factorCarga = (double)numPalabras / tabla.size();
+
+	if (factorCarga > 0.75)
+	{
+    	reestructurar();
+	}
+    
 }
 
 // PALABRAS
