@@ -113,7 +113,7 @@ ArbolPrecios::Nodo* ArbolPrecios::rotacionIzquierda(Nodo* nodo)
     return der;
 }
 
-
+// EQUILIBRAR
 ArbolPrecios::Nodo* ArbolPrecios::equilibrar(Nodo* nodo)
 {
     int altura_izq = altura(nodo->izquierdo);
@@ -148,42 +148,37 @@ ArbolPrecios::Nodo* ArbolPrecios::equilibrar(Nodo* nodo)
     return nodo;
 }
 
-
-// ============================================================
 // INSERCIÓN RECURSIVA
-// ============================================================
-
-ArbolPrecios::Nodo* ArbolPrecios::insertar(
-    Nodo* nodo, int precio, Producto* producto)
+ArbolPrecios::Nodo* ArbolPrecios::insertar(Nodo* nodo, int precio, Producto* producto)
 {
-    // TODO:
-    // 1. Si el nodo es nullptr, crear un nodo nuevo.
-    // 2. Si el precio es menor, insertar por la izquierda.
-    // 3. Si el precio es mayor, insertar por la derecha.
-    // 4. Si el precio coincide, añadir el producto a la lista.
-    // 5. Equilibrar el nodo antes de devolverlo.
+    // Si el nodo es nullptr, crear un nodo nuevo.
+    if (nodo == nullptr) return new Nodo(precio, producto);
 
-    return nodo;
+    // Si el precio es menor, insertar por la izquierda.
+    if (precio < nodo->precio) nodo->izquierdo = insertar(nodo->izquierdo, precio, producto);
+    
+    // Si el precio es mayor, insertar por la derecha.
+    else if (precio > nodo->precio) nodo->derecho = insertar(nodo->derecho, precio, producto);
+
+    // Si el precio coincide, añadir el producto a la lista.
+    else {
+        nodo->productos.push_back(producto);
+        return nodo;
+    }
+
+    return equilibrar(nodo);
 }
 
 
-// ============================================================
-// INSERCIÓN PÚBLICA
-// ============================================================
-
+// INSERCIÓN PUBLICA
 void ArbolPrecios::insertar(Producto* producto)
-{
-    // TODO:
-    // 1. Obtener el precio mediante producto->getPrecio().
-    // 2. Convertirlo a céntimos.
-    // 3. Actualizar la raíz mediante la inserción recursiva.
+{ 
+    // Convertirlo a céntimos.
+    int precio = producto->getPrecio() * 100 + 0.5;
+    raiz = insertar(raiz, precio, producto);
 }
 
-
-// ============================================================
-// CONSULTA RECURSIVA POR INTERVALO
-// ============================================================
-
+// CONSULTAR
 void ArbolPrecios::consultar(
     Nodo* nodo, int min, int max,
     vector<Producto*>& resultado) const
@@ -196,11 +191,7 @@ void ArbolPrecios::consultar(
     //    contener precios dentro del intervalo.
 }
 
-
-// ============================================================
-// CONSULTA PÚBLICA
-// ============================================================
-
+// PRECIOS
 void ArbolPrecios::precios(double min, double max)
 {
     // TODO:
