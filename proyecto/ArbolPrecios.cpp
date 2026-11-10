@@ -58,44 +58,92 @@ int ArbolPrecios::factorEquilibrio(Nodo* nodo) const
 ArbolPrecios::Nodo* ArbolPrecios::rotacionDerecha(Nodo* nodo)
 {
     Nodo* izq = nodo->izquierdo;    // Hijo izquierdo
-    Nodo* aux = izq->derecho;       // Subarbol derecho del Hijo izquierdo
+    Nodo* aux = izq->derecho;       // Subárbol derecho del hijo izquierdo
 
     izq->derecho = nodo;
     nodo->izquierdo = aux;
 
-    nodo->altura = 1 + max(altura(nodo->izquierdo),
-                           altura(nodo->derecho));
+    // Actualizar altura del nodo que ha descendido
+    int altura_izq = altura(nodo->izquierdo);
+    int altura_der = altura(nodo->derecho);
 
-    izq->altura = 1 + max(altura(izq->izquierdo),
-                          altura(izq->derecho));
+    if (altura_izq > altura_der)
+        nodo->altura = 1 + altura_izq;
+    else
+        nodo->altura = 1 + altura_der;
+
+    // Actualizar altura del nodo que ha ascendido
+    altura_izq = altura(izq->izquierdo);
+    altura_der = altura(izq->derecho);
+
+    if (altura_izq > altura_der)
+        izq->altura = 1 + altura_izq;
+    else
+        izq->altura = 1 + altura_der;
 
     return izq;
 }
 
 ArbolPrecios::Nodo* ArbolPrecios::rotacionIzquierda(Nodo* nodo)
 {
-    Nodo* der = nodo->derecho;      // Hijo derecho
-    Nodo* aux = der->izquierdo;     // Subarbol izquierdo del Hijo derecho
+    Nodo* der = nodo->derecho;     // Hijo derecho
+    Nodo* aux = der->izquierdo;    // Subárbol izquierdo del hijo derecho
 
     der->izquierdo = nodo;
     nodo->derecho = aux;
 
-    nodo->altura = 1 + max(altura(nodo->izquierdo),
-                           altura(nodo->derecho));
+    // Actualizar altura del nodo que ha descendido
+    int altura_izq = altura(nodo->izquierdo);
+    int altura_der = altura(nodo->derecho);
 
-    der->altura = 1 + max(altura(der->izquierdo),
-                          altura(der->derecho));
+    if (altura_izq > altura_der)
+        nodo->altura = 1 + altura_izq;
+    else
+        nodo->altura = 1 + altura_der;
+
+    // Actualizar altura del nodo que ha ascendido
+    altura_izq = altura(der->izquierdo);
+    altura_der = altura(der->derecho);
+
+    if (altura_izq > altura_der)
+        der->altura = 1 + altura_izq;
+    else
+        der->altura = 1 + altura_der;
 
     return der;
 }
 
+
 ArbolPrecios::Nodo* ArbolPrecios::equilibrar(Nodo* nodo)
 {
-    // TODO:
-    // 1. Actualizar la altura del nodo.
-    // 2. Calcular el factor de equilibrio.
-    // 3. Detectar los casos LL, RR, LR y RL.
-    // 4. Aplicar las rotaciones correspondientes.
+    int altura_izq = altura(nodo->izquierdo);
+    int altura_der = altura(nodo->derecho);
+
+    if (altura_izq > altura_der)
+        nodo->altura = 1 + altura_izq;
+    else
+        nodo->altura = 1 + altura_der;
+
+    int fe_nodo = factorEquilibrio(nodo);
+
+    if (fe_nodo > 1)         // CASOS LL Y LR
+    {
+        int fe_hijo = factorEquilibrio(nodo->izquierdo);
+
+        if (fe_hijo < 0)     // LR
+            nodo->izquierdo = rotacionIzquierda(nodo->izquierdo);
+
+        nodo = rotacionDerecha(nodo);
+    }
+    else if (fe_nodo < -1)   // CASOS RR Y RL
+    {
+        int fe_hijo = factorEquilibrio(nodo->derecho);
+
+        if (fe_hijo > 0)     // RL
+            nodo->derecho = rotacionDerecha(nodo->derecho);
+
+        nodo = rotacionIzquierda(nodo);
+    }
 
     return nodo;
 }
