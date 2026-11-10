@@ -1,5 +1,5 @@
 a.out: Producto.o TablaHash.o ArbolPrecios.o DiccionarioProductos.o Interprete.o main.o
-	g++ Producto.o TablaHash.o DiccionarioProductos.o Interprete.o main.o
+	g++ Producto.o TablaHash.o ArbolPrecios.o DiccionarioProductos.o Interprete.o main.o
 
 Producto.o: Producto.cpp Producto.h
 	g++ -c Producto.cpp
