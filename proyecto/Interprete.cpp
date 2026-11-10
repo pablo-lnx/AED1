@@ -28,9 +28,21 @@ void Interprete::procesar_palabras()
     dic.palabras(palabra);
 }
 
+// PRECIOS
+void Interprete::procesar_precios()
+{
+    double min, max;
+    cin >> min >> max;
+
+    cout << "precios " << min << " " << max << endl;
+
+    dic.precios(min, max);
+}
+
 // EJECUTAR COMANDO
 void Interprete::ejecutar(string comando)
 {
     if (comando == "insertar") procesar_insertar();
     if (comando == "palabras") procesar_palabras();
+    if (comando == "precios") procesar_precios();
 }

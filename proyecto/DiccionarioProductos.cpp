@@ -18,6 +18,7 @@ void DiccionarioProductos::insertar(Producto nuevo)
 
     // Obtenemos un puntero al producto insertado
     Producto* producto = &lista_productos.front();
+    arbol.insertar(producto);
 
     // Indexamos las palabras del nombre
     stringstream flujoNombre(producto->getNombre());
@@ -37,6 +38,12 @@ void DiccionarioProductos::insertar(Producto nuevo)
 void DiccionarioProductos::palabras(string palabra)
 {
     tabla.palabras(palabra);
+}
+
+// PRECIOS
+void DiccionarioProductos::precios(double min, double max)
+{
+    arbol.precios(min, max);
 }
 
 // NUMERO DE PRODUCTOS

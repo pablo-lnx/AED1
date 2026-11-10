@@ -14,7 +14,7 @@ class Interprete {
         void procesar_palabras();
         // void procesar_eliminar();
         // void procesar_producto();
-        // void procesar_precios();
+        void procesar_precios();
 
     public:
         // CONSTRUCTOR

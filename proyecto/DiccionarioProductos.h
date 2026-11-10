@@ -4,6 +4,7 @@
 // Arreglar importaciones
 #include "Producto.h"
 #include "TablaHash.h"
+#include "ArbolPrecios.h"
 #include <list>
 
 class DiccionarioProductos {
@@ -11,15 +12,17 @@ class DiccionarioProductos {
         // ATRIBUTOS
         std::list<Producto> lista_productos;
         TablaHash tabla;
+        ArbolPrecios arbol;
     
     public:
         // CONSTRUCTOR
         DiccionarioProductos();
 
         // METODOS
-        void insertar(Producto nuevo);      // Insertar de forma ordenada (ID del producto)
+        void insertar(Producto nuevo);
         void palabras(std::string palabra);
-        int numElem();   // Devuelve el numero de productos
+        void precios(double min, double max);
+        int numElem();
 };
 
 #endif
