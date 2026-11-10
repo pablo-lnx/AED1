@@ -1,0 +1,10 @@
+precios 10 20
+1 productos
+2 productos
+3 productos
+4 productos
+precios 15 100
+precios 0 10000
+precios 99.95 99.95
+precios 44 99.95
+precios 50 100
