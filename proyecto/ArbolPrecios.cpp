@@ -211,8 +211,7 @@ void ArbolPrecios::precios(double min, double max)
     // TODO:
     // 1. Convertir los límites a céntimos.
     // 2. Recopilar los productos mediante consultar().
-    // 3. Ordenar los productos por identificador ascendente,
-    //    sin utilizar std::sort ni <algorithm>.
+    // 3. Ordenar los productos por identificador ascendente
     // 4. Mostrar los productos con el formato del enunciado.
     // 5. Mostrar el total de productos.
 }
