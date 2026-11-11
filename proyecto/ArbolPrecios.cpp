@@ -179,16 +179,30 @@ void ArbolPrecios::insertar(Producto* producto)
 }
 
 // CONSULTAR
-void ArbolPrecios::consultar(
-    Nodo* nodo, int min, int max,
-    vector<Producto*>& resultado) const
+void ArbolPrecios::consultar(Nodo* nodo, int min, int max, vector<Producto*>& resultado) const
 {
-    // TODO:
-    // 1. Si nodo es nullptr, terminar.
-    // 2. Si el precio está dentro del intervalo,
-    //    añadir sus productos al vector.
-    // 3. Explorar únicamente los subárboles que puedan
-    //    contener precios dentro del intervalo.
+    if (nodo != nullptr)
+    {
+        // Si el precio está dentro del intervalo, añadir sus productos.
+        if (nodo->precio >= min && nodo->precio <= max)
+        {
+            for (Producto* producto : nodo->productos)
+                resultado.push_back(producto);
+        }
+
+        // Explorar únicamente los subárboles que puedan contener precios dentro del intervalo.
+        if (nodo->precio < min)
+            consultar(nodo->derecho, min, max, resultado);
+
+        else if (nodo->precio > max)
+            consultar(nodo->izquierdo, min, max, resultado);
+
+        else
+        {
+            consultar(nodo->izquierdo, min, max, resultado);
+            consultar(nodo->derecho, min, max, resultado);
+        }
+    }
 }
 
 // PRECIOS
