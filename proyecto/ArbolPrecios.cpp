@@ -205,13 +205,80 @@ void ArbolPrecios::consultar(Nodo* nodo, int min, int max, vector<Producto*>& re
     }
 }
 
+// FUNCION AUX: PRECIOS
+
+static void ordenarProductos(vector<Producto*>& productos, vector<Producto*>& auxiliar, int inicio, int fin)
+{
+    if (fin - inicio <= 1)
+        return;
+
+    int medio = inicio + (fin - inicio) / 2;
+
+    ordenarProductos(productos, auxiliar, inicio, medio);
+    ordenarProductos(productos, auxiliar, medio, fin);
+
+    int i = inicio;
+    int j = medio;
+    int k = inicio;
+
+    while (i < medio && j < fin)
+    {
+        if (productos[i]->getIdentificador() <
+            productos[j]->getIdentificador())
+        {
+            auxiliar[k] = productos[i];
+            i++;
+        }
+        else
+        {
+            auxiliar[k] = productos[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while (i < medio)
+    {
+        auxiliar[k] = productos[i];
+        i++;
+        k++;
+    }
+
+    while (j < fin)
+    {
+        auxiliar[k] = productos[j];
+        j++;
+        k++;
+    }
+
+    for (k = inicio; k < fin; k++)
+        productos[k] = auxiliar[k];
+}
+
 // PRECIOS
 void ArbolPrecios::precios(double min, double max)
 {
-    // TODO:
-    // 1. Convertir los límites a céntimos.
-    // 2. Recopilar los productos mediante consultar().
-    // 3. Ordenar los productos por identificador ascendente
-    // 4. Mostrar los productos con el formato del enunciado.
-    // 5. Mostrar el total de productos.
+    // Convertir los límites a céntimos.
+    int minimo = static_cast<int>(min * 100 + 0.5);
+    int maximo = static_cast<int>(max * 100 + 0.5);
+
+    // Recopilar los productos del intervalo.
+    vector<Producto*> resultado;
+    consultar(raiz, minimo, maximo, resultado);
+
+    // Ordenar por identificador ascendente.
+    vector<Producto*> auxiliar(resultado.size());
+
+    ordenarProductos(resultado, auxiliar, 0, resultado.size());
+
+    // Mostrar los productos.
+    for (unsigned int i = 0; i < resultado.size(); i++)
+    {
+        cout << i + 1 << ". ";
+        resultado[i]->mostrar();
+    }
+
+    // Mostrar el total.
+    cout << "Total: " << resultado.size() << " productos" << endl;
 }
