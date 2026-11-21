@@ -6,10 +6,3 @@
 > **Proyecto:** Ficheros y su respectivo Makefile en el directorio `proyecto/`
 
 `tar -cf archivo.tar *.cpp *.h Makefile`
-
-#### **Nota:** Cambios sugeridos de forma provisional
-
-> ArbolPrecios.h
-- Crear e implementar
-> ArbolPrecios.cpp
-- Crear e implementar
